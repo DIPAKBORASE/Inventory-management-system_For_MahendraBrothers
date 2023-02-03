@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<mate charest="utf-8" />
+		<title>Gatepass</title>
+		<style>
+			html {
+				height: -webkit-fill-available;
+			}
+
+			body {
+				font-size: 12px;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				line-height: 1.6;
+				border: 1px solid black;
+				min-height: 100vh;
+				min-height: -webkit-fill-available;
+			}
+
+			.spreadSheetGroup table {
+				width: 100%;
+				margin-bottom: 1em;
+				border-collapse: collapse;
+			}
+
+			.spreadSheetGroup .proposedWork th {
+				background-color: #eee;
+			}
+
+			.tableBorder th {
+				background-color: #eee;
+			}
+
+			.spreadSheetGroup th,
+			.spreadSheetGroup tbody td {
+				padding: 0.5em;
+			}
+
+			.spreadSheetGroup tfoot td {
+				padding: 0.5em;
+			}
+
+			.spreadSheetGroup td:focus {
+				border: 1px solid #fff;
+				-webkit-box-shadow: inset 0px 0px 0px 2px #5292f7;
+				-moz-box-shadow: inset 0px 0px 0px 2px #5292f7;
+				box-shadow: inset 0px 0px 0px 2px #5292f7;
+				outline: none;
+			}
+
+			.spreadSheetGroup .spreadSheetTitle {
+				font-weight: bold;
+			}
+
+			.spreadSheetGroup tr td {
+				text-align: center;
+			}
+
+			.spreadSheetGroup .calculation::before,
+			.spreadSheetGroup .groupTotal::before {
+				content: '$';
+			}
+
+			table.proposedWork td,
+			table.proposedWork th,
+			table.exclusions td,
+			table.exclusions th {
+				border: 1px solid #000;
+			}
+
+			table.proposedWork thead th,
+			table.exclusions thead th {
+				font-weight: bold;
+			}
+
+			table.proposedWork td.amount,
+			table.proposedWork th.amount {
+				text-align: right;
+			}
+
+			.amount:before,
+			.total:before {
+				content: '₹';
+			}
+
+			table.shipToFrom td,
+			table.shipToFrom th {
+				text-align: left;
+			}
+
+			.spreadSheetGroup .proposedWork th:first-child,
+			.spreadSheetGroup .proposedWork td:first-child {
+				border-left: none;
+			}
+
+			.spreadSheetGroup .proposedWork th:last-child,
+			.spreadSheetGroup .proposedWork td:last-child {
+				border-right: none;
+			}
+
+			.spreadSheetGroup .proposedWork tr:last-child td {
+				border-bottom: 1px solid black !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="document active">
+			<div class="spreadSheetGroup">
+				<table class="shipToFrom">
+					<thead style="font-weight: bold">
+						<tr>
+							<th>
+								<img
+									src="http://10.10.10.19/company-logo.png"
+									style="max-width: 250px"
+								/>
+							</th>
+							<th style="text-align: right; font-size: 26px">GATEPASS</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td
+								colspan="2"
+								style="width: 100%; vertical-align: top; text-align: center"
+							>
+								<strong>MAHENDRA BROTHERS EXPORTS PVT LTD</strong><br />
+								Unit No. 101, 1st Floor, Vedanta Building,<br />
+								Near Jafer Industrial Estate, Makwana Road<br />
+								Marol, Andheri (East), Mumbai - 400 059
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%; vertical-align: top">
+								<strong> Issue To:</strong> {{issueTo}}<br />
+								<strong> Location:</strong> {{location}}<br />
+								<strong>Department:</strong> {{department}}<br />
+								<strong>Cost Center:</strong> {{costcenter}}
+							</td>
+							<td style="width: 50%; vertical-align: top; text-align: right">
+								<strong> GATE PASS NO:</strong> {{GPNO}}<br />
+								<strong> DATE:</strong> {{GPDate}}<br />
+								<strong>Time:</strong> {{GPTime}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<hr style="visibility: hidden" />
+
+				<table class="shipToFrom">
+					<thead style="font-weight: bold">
+						<tr>
+							<th>
+								Collected by:
+								<!-- {{collectedBy}} -->
+							</th>
+							<th style="text-align: right">
+								Mode of Transport: {{modeOfTransport}}
+							</th>
+						</tr>
+					</thead>
+				</table>
+
+				<hr style="visibility: hidden" />
+
+				<table class="proposedWork" width="100%" style="margin-top: 20px">
+					<thead>
+						<th style="width: 10px">Sr.No.</th>
+						<th style="width: 80px">Item Code</th>
+						<th style="text-align: left">Item Name</th>
+						<th style="width: 40px">Barcode</th>
+						<th style="width: 40px">QTY</th>
+						<th style="width: 40px">UOM</th>
+						<th style="width: 250px; text-align: left">Remark</th>
+					</thead>
+					<tbody>
+						{{#each items}}
+						<tr>
+							<td>{{inc @index}}</td>
+							<td>{{ALT_Code}}</td>
+							<td style="text-align: left">{{Name}}</td>
+							<td>{{Barcode}}</td>
+							<td>{{Quantity}}</td>
+							<td>{{UOM}}</td>
+							<td style="text-align: left">{{Remark}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+
+				<table style="width: 100%; margin-top: 90px">
+					<tbody>
+						<tr>
+							<td style="width: 33%; text-align: center">
+								<!-- {{issueBy}}<br /><br /> -->
+								<strong>Issue by</strong>
+							</td>
+							<td style="width: 33%; text-align: center">
+								<!-- {{storeCollectedBy}}<br /><br /> -->
+								<strong>Store collected by</strong>
+							</td>
+							<td style="width: 33%; text-align: center">
+								<!-- {{authorizedBy}}<br /><br /> -->
+								<strong>Authorized by</strong>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <mate charest="utf-8" />
+    <title>Purchase Order</title>
+    <style>
+        html {
+            height: -webkit-fill-available;
+        }
+        
+        body {
+            font-size: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            line-height: 1.6;
+            border: 1px solid black;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        
+        .spreadSheetGroup table {
+            width: 100%;
+            margin-bottom: 1em;
+            border-collapse: collapse;
+        }
+        
+        .spreadSheetGroup .proposedWork th {
+            background-color: #eee;
+        }
+        
+        .tableBorder th {
+            background-color: #eee;
+        }
+        
+        .spreadSheetGroup th,
+        .spreadSheetGroup tbody td {
+            padding: 0.5em;
+        }
+        
+        .spreadSheetGroup tfoot td {
+            padding: 0.5em;
+        }
+        
+        .spreadSheetGroup td:focus {
+            border: 1px solid #fff;
+            -webkit-box-shadow: inset 0px 0px 0px 2px #5292F7;
+            -moz-box-shadow: inset 0px 0px 0px 2px #5292F7;
+            box-shadow: inset 0px 0px 0px 2px #5292F7;
+            outline: none;
+        }
+        
+        .spreadSheetGroup .spreadSheetTitle {
+            font-weight: bold;
+        }
+        
+        .spreadSheetGroup tr td {
+            text-align: center;
+        }
+        
+        .spreadSheetGroup .calculation::before,
+        .spreadSheetGroup .groupTotal::before {
+            content: "$";
+        }
+        
+        table.proposedWork td,
+        table.proposedWork th,
+        table.exclusions td,
+        table.exclusions th {
+            border: 1px solid #000;
+        }
+        
+        table.proposedWork thead th,
+        table.exclusions thead th {
+            font-weight: bold;
+        }
+        
+        table.proposedWork td.amount,
+        table.proposedWork th.amount {
+            text-align: right;
+        }
+        
+        .amount:before,
+        .total:before {
+            content: "₹";
+        }
+        
+        table.shipToFrom td,
+        table.shipToFrom th {
+            text-align: left
+        }
+        
+        .spreadSheetGroup .proposedWork th:first-child,
+        .spreadSheetGroup .proposedWork td:first-child {
+            border-left: none;
+        }
+        
+        .spreadSheetGroup .proposedWork th:last-child,
+        .spreadSheetGroup .proposedWork td:last-child {
+            border-right: none;
+        }
+        
+        .spreadSheetGroup .proposedWork tr:last-child td {
+            border-bottom: 1px solid black !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="document active">
+        <div class="spreadSheetGroup">
+
+            <table class="shipToFrom">
+                <thead style="font-weight:bold">
+                    <tr>
+                        <th><img src="http://10.10.10.19/company-logo.png" style="max-width: 250px;"></th>
+                        <th style="text-align: right;font-size: 26px;">PURCHASE ORDER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:50%;vertical-align: top;">
+                            <strong>MAHENDRA BROTHERS EXPORTS PVT LTD</strong></br>
+                            Tower C, Central Wing, CC/CE 7011, 7th Floor,</br>
+                            Bharat Diamond Bourse, G-Block,</br>
+                            Bandra-Kurla Complex, Bandra (East), Mumbai - 400 051</br>
+                            Phone :- 022-68111000</br>
+                            Email Id :- admin@mahendrabrothers.com</br>
+                            GST NO :- 27AAFCM0246E1ZT
+                        </td>
+                        <td style="width:50%;vertical-align: top;text-align: right;">
+                            <strong> DATE:</strong> {{PODate}}<br/> <strong>PO No:</strong> {{PONo}}
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr style="visibility:hidden" />
+
+            <table class="shipToFrom">
+                <thead style="font-weight:bold">
+                    <tr>
+                        <th>VENDOR</th>
+                        <th>SHIP TO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:50%;vertical-align: top;">
+                            <strong>Name : </strong> {{vendor}}<br/>
+                            <strong>Address : </strong> {{vendorAddress}}<br/>
+                            <strong>Phone : </strong> {{vendorContact}}
+                            <strong>Email Id : </strong> {{vendorEmail}}
+                            <strong>GST No : </strong> {{vendorGST}}
+                            
+                            <!-- <br/>Auto add address and others details after selection of vendor <br/>We will provide vendor master as per Autoflow format -->
+
+                        </td>
+                        <td style="width:50%;vertical-align: top;">
+                            Mahendra Brothers Exports Pvt Ltd <br/>Unit No. 101, 1st Floor, Vedanta Building, <br/>Near Jafer Industrial Estate, <br/>Makwana Road, Marol, Andheri (East), Mumbai - 400 059 <br/>Phone :- 022-68111000 Ext. 1063 <br/>Email
+                            Id:- admin@mahendrabrothers.com </br>GST NO :- 27AAFCM0246E1ZT
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr style="visibility:hidden" />
+
+
+            <!-- <table class="tableBorder">
+                <thead style="font-weight:bold">
+                    <tr>
+                        <th>SHIPPING METHOD</th>
+                        <th>SPECIFIED BY</th>
+                        <th>SIDEMARK</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:33.3%"></td>
+                        <td style="width:33.3%"></td>
+                        <td style="width:33.3%"></td>
+                    </tr>
+                </tbody>
+            </table> -->
+
+
+
+            <table class="proposedWork" width="100%" style="margin-top:20px">
+                <thead>
+                    <th style="width: 10px;">Sr.No.</th>
+                    <th style="width: 80px;">Item Code</th>
+                    <th style="text-align: left;">Item Name / Description</th>
+                    <th style="width: 40px;">Quantity</th>
+                    <th style="width: 40px;">UOM</th>
+                    <th style="width: 70px;">Unit Price</th>
+                    <th style="width: 7px;">Subtotal</th>
+                    <th style="width: 10px;">GST%</th>
+                    <th style="width: 70px;">Total</th>
+                </thead>
+                <tbody>
+                    {{#each items}}
+                    <tr>
+                        <td>{{inc @index}}</td>
+                        <td>{{ALT_Code}}</td>
+                        <td style="text-align: left;">{{Name}} {{#ifEmpty Description ""}}({{Description}}){{/ifEmpty}}</td>
+                        <td>{{Quantity}}</td>
+                        <td>{{UOM}}</td>
+                        <td class="amount">{{amountFixed Per_Unit_Price}}</td>
+                        <td class="amount">{{amountFixed Total_Price}}</td>
+                        <td>{{amountFixed TAX_Percentage}}</td>
+                        <td class="amount">{{amountFixed Sub_Total}}</td>
+                    </tr>
+                    {{/each}} {{#times blankRows}}
+                    <tr>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;border-right: 1px solid black;">&nbsp;</td>
+                        <td style="border: none;">&nbsp;</td>
+                    </tr>
+                    {{/times}}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td style="border:none;text-align: left;vertical-align: top;" colspan="7" rowspan="4">
+                            <h4 style="margin: 0;">Term & Condition:-</h4>
+                            <!-- <div>1) Invoice to be made as per PO</div>
+                            <div>2) If any material will be damage/Faulty, we will return at time of delivery</div>
+                            <div>3) Material Replacement will be applicable</div>
+                            <div>4) Payment Term:- 7 days after bill submission</div> -->
+                            <div style="width:50%;">{{{termsAndCondition}}}</div>
+
+                        </td>
+                        <td style="border:none;text-align:right">SUBTOTAL:</td>
+                        <td class="amount subtotal">{{amountFixed subtotal}}</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none;text-align:right">GST AMT:</td>
+                        <td class="amount">{{amountFixed tax}}</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none;text-align:right">TOTAL:</td>
+                        <td class="total amount">{{amountFixed total}}</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none!important;" rowspan="2">&nbsp;</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+
+            <table style="width:100%;margin-top:20px;">
+                <tbody>
+                    <tr>
+                        <td style="width: 33%;text-align: center;">
+                            &nbsp;<br/><br/>
+                            {{preparedBy}}
+                            <br/><br/><strong>Prepared by</strong>
+                        </td>
+                        <td style="width: 33%;text-align: center;">
+                            &nbsp;<br/><br/>
+                            <!-- {{checkedBy}} -->
+                            <br/><br/><strong>Checked by</strong>
+                        </td>
+                        <td style="width: 33%;text-align: center;">
+                            For, Mahendra Brothers Exports Pvt Ltd<br/><br/>
+                            <!-- {{authorizedBy}} -->
+                            <br/><br/> <strong>Authorized Signatory</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</body>
+
+</html>

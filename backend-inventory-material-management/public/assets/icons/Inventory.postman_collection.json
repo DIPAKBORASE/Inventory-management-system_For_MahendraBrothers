@@ -1,0 +1,1127 @@
+{
+	"info": {
+		"_postman_id": "dff23f5c-06a9-4dbb-a4fe-89e38ef144b6",
+		"name": "Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/product/addProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3NTQ4NzUxLCJleHAiOjE2MzAxNDA3NTF9.xn8OzoVhKuxse80E6b-NoXOYHoR0lZPWn0TZtY4W9z0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ALT_Code\":\"IN1\",\r\n\"Name\":\"spiderman1\",\r\n\"Product_Group\":\"dj\",\r\n\"UOM\":\"sfsdf\",\r\n\"Asset_Holder\":\"Admin\",\r\n\"Category\":\"OPEX\",\r\n\"Description\":\"this is testing1\",\r\n\"Price\":45.90,\r\n\"Low_Stock_Quantity\":\"12\",\r\n\"TAX_Percentage\":\"45.876\",\r\n\"Manufacturer_Name\":[\"thor11\",\"thor1222\",\"thor12\"],\r\n\"id\":7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product/updateProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"updateProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/product/getProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDU1NDcyLCJleHAiOjE2MzAwNDc0NzJ9.USnl4o-bilnC3k-97xoz4QhfKR_NoXr_ca6pl_iw-7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product/getProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"getProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/product/getProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDU1NDcyLCJleHAiOjE2MzAwNDc0NzJ9.USnl4o-bilnC3k-97xoz4QhfKR_NoXr_ca6pl_iw-7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\":0,\r\n    \"pageSize\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product/getProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "http://localhost:5000/addLocation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3NDY2OTA2LCJleHAiOjE2MzAwNTg5MDZ9.TYMaUCVdF2QrjDXYe_gU9m8vSo55mhm8kYrIMkslQHk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ALT_Code",
+									"value": "IN5",
+									"type": "text"
+								},
+								{
+									"key": "Name",
+									"value": "AutoFlowTech5",
+									"type": "text"
+								},
+								{
+									"key": "Contact_Person",
+									"value": "spiderman5",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "abc@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Phone",
+									"value": "9405264157",
+									"type": "text"
+								},
+								{
+									"key": "State",
+									"value": "MH",
+									"type": "text"
+								},
+								{
+									"key": "City",
+									"value": "devgad",
+									"type": "text"
+								},
+								{
+									"key": "Address",
+									"value": "devgad",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/location/updateLocation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"location",
+								"updateLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/location/deleteLocation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDU1NDcyLCJleHAiOjE2MzAwNDc0NzJ9.USnl4o-bilnC3k-97xoz4QhfKR_NoXr_ca6pl_iw-7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/location/getLocation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"location",
+								"getLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/location/getLocations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDU1NDcyLCJleHAiOjE2MzAwNDc0NzJ9.USnl4o-bilnC3k-97xoz4QhfKR_NoXr_ca6pl_iw-7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\":0,\r\n    \"pageSize\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/location/getLocations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"location",
+								"getLocations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vendor",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/vendor/addLocation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ALT_Code",
+									"value": "IN24",
+									"type": "text"
+								},
+								{
+									"key": "Name",
+									"value": "spiderman24",
+									"type": "text"
+								},
+								{
+									"key": "Contact_Person",
+									"value": "Sumit111",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "abc@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Phone",
+									"value": "9766449791",
+									"type": "text"
+								},
+								{
+									"key": "State",
+									"value": "MH",
+									"type": "text"
+								},
+								{
+									"key": "Country",
+									"value": "India",
+									"type": "text"
+								},
+								{
+									"key": "City",
+									"value": "Devgad",
+									"type": "text"
+								},
+								{
+									"key": "Address",
+									"value": "Devgad",
+									"type": "text"
+								},
+								{
+									"key": "Pincode",
+									"value": "416613",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "This is testing",
+									"type": "text"
+								},
+								{
+									"key": "GST_No",
+									"value": "BKID000JDJF",
+									"type": "text"
+								},
+								{
+									"key": "PAN_No",
+									"value": "HJVJKHSDJSVJ92",
+									"type": "text"
+								},
+								{
+									"key": "Bank_Name",
+									"value": "Bank Of India",
+									"type": "text"
+								},
+								{
+									"key": "Account_Number",
+									"value": "1468129041028122",
+									"type": "text"
+								},
+								{
+									"key": "Bank_Branch",
+									"value": "Devgad",
+									"type": "text"
+								},
+								{
+									"key": "IFSC_Code",
+									"value": "BKID0004747",
+									"type": "text"
+								},
+								{
+									"key": "Bank_Address",
+									"value": "Devgad",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/vendor/updateVendor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"vendor",
+								"updateVendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/vendor/deleteVendor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/vendor/getVendor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"vendor",
+								"getVendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/vendor/getVendors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\":0,\r\n    \"pageSize\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/vendor/getVendors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"vendor",
+								"getVendors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "http://localhost:5000/banner/getBanner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Employee_Code",
+									"value": "EMP0058",
+									"type": "text"
+								},
+								{
+									"key": "Name",
+									"value": "Sumit58",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Mobile",
+									"value": "9405264158",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "abc@123",
+									"type": "text"
+								},
+								{
+									"key": "User_Type",
+									"value": "System Admin",
+									"type": "text"
+								},
+								{
+									"key": "HOD",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "HEAD",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Location",
+									"value": "Delhi",
+									"type": "text"
+								},
+								{
+									"key": "Department",
+									"value": "IT",
+									"type": "text"
+								},
+								{
+									"key": "Cost_Center",
+									"value": "asd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/auth/login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3MzU3NjU5LCJleHAiOjE2Mjk5NDk2NTl9.x8NfrZ-hWdUbXjm7vRGKaRMmTT4ax_TbED6tlvUhChk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "EMP0058",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "abc@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users/update-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjczODYxNDYsImV4cCI6MTYyOTk3ODE0Nn0.rFlUHRTk-OtZKgN5Tg4a8tRkKAAMewtUwl-LAwECS2Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Employee_Code",
+									"value": "EMP0058",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "Sumit",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Email",
+									"value": "abc@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Mobile",
+									"value": "9405264157",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "User_Type",
+									"value": "System Admin",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "HOD",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "HEAD",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Department",
+									"value": "it",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Cost_Center",
+									"value": "asd",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/update-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"update-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users/getuser?id=1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjczOTA1OTMsImV4cCI6MTYyOTk4MjU5M30.hu3oxOL0TvL6w-Funbs9SbVL6WFxzcK7XUgUJNr5WjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/getUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"getUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDc3MjkxLCJleHAiOjE2MzAwNjkyOTF9.vKbyXNuaoycnxS_-OMIosqQdz-xd30a21sHCbbjQKgA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\":0,\r\n    \"pageSize\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users/change-password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3MzU4Nzc5LCJleHAiOjE2Mjk5NTA3Nzl9.ycbH1169wc8pkrRrPD_tu4_wg44o1yf84tjqB2N3u2g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "pk@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/auth/logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3MzU4Nzc5LCJleHAiOjE2Mjk5NTA3Nzl9.ycbH1169wc8pkrRrPD_tu4_wg44o1yf84tjqB2N3u2g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "unit",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/unit/updateUnit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDU1NDcyLCJleHAiOjE2MzAwNDc0NzJ9.USnl4o-bilnC3k-97xoz4QhfKR_NoXr_ca6pl_iw-7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Name",
+									"value": "Djwala1",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/unit/addUnit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"unit",
+								"addUnit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/unit/deleteUnit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDU1NDcyLCJleHAiOjE2MzAwNDc0NzJ9.USnl4o-bilnC3k-97xoz4QhfKR_NoXr_ca6pl_iw-7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/unit/deleteUnit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"unit",
+								"deleteUnit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/unit/getUnits",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjI3NDU1NDcyLCJleHAiOjE2MzAwNDc0NzJ9.USnl4o-bilnC3k-97xoz4QhfKR_NoXr_ca6pl_iw-7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\":0,\r\n    \"pageSize\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/unit/getUnits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"unit",
+								"getUnits"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IssueType",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/issuetype/addIssueType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Name",
+									"value": "Happy Birthday",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/issuetype/addIssueType",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"issuetype",
+								"addIssueType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/issuetype/getIssueType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/issuetype/deleteIssueType",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"issuetype",
+								"deleteIssueType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/issuetype/getIssueTypes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\":0,\r\n    \"pageSize\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/issuetype/getIssueTypes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"issuetype",
+								"getIssueTypes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

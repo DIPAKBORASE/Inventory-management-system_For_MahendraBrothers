@@ -1,0 +1,143 @@
+const express = require('express');
+const {
+	getDispatch,
+	getDispatches,
+	addDispatch,
+	getALLDepartment,
+	getDispatchFromRequest,
+	getDispatchExport,
+	trackEmployee,
+	getTrackEmployeeExport,
+	deleteDispatch,
+	searchEmployee,
+} = require('../controllers/dispatch');
+
+const { protect, authorize } = require('../middleware/auth');
+
+const router = express.Router();
+
+const dispatch_valid = require('../validations/dispatch_validator');
+
+router
+	.post(
+		'/deleteDispatch',
+		dispatch_valid.idValid(),
+		protect,
+		authorize(process.env.SYSTEM_ADMIN),
+		deleteDispatch
+	)
+	.post(
+		'/getDispatch',
+		dispatch_valid.idValid(),
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		getDispatch
+	)
+	.post(
+		'/getDispatches',
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		getDispatches
+	)
+	.post(
+		'/getALLDepartment',
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		getALLDepartment
+	)
+
+	.post(
+		'/addDispatch',
+		dispatch_valid.saveValid(),
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		addDispatch
+	)
+	.post(
+		'/getDispatchFromRequest',
+		dispatch_valid.saveValid(),
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		getDispatchFromRequest
+	)
+	.post(
+		'/getDispatchExport',
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		getDispatchExport
+	)
+	.post(
+		'/searchEmployee',
+		// inward_valid.searchInwardValid(),
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		searchEmployee
+	)
+	.post(
+		'/trackEmployee',
+		dispatch_valid.trackValid(),
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		trackEmployee
+	)
+	.post(
+		'/trackEmployeeExport',
+		protect,
+		authorize(
+			process.env.IT,
+			process.env.ADMIN,
+			process.env.IT_SYSTEM_ADMIN,
+			process.env.ADMIN_SYSTEM_ADMIN,
+			process.env.SYSTEM_ADMIN
+		),
+		getTrackEmployeeExport
+	);
+module.exports = router;

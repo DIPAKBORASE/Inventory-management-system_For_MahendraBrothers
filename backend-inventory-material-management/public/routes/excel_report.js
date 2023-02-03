@@ -1,0 +1,128 @@
+const express = require('express');
+const {
+	getChallanSummaryExport,
+	getMaterialReceiptExport,
+	getConsumptionExport,
+	getIssueTrackerExport,
+	getConsumptionExportYTDAndMTD,
+	getStockSummaryExport,
+	getItemWiseStockExport,
+	getProductStockLedgerExport,
+	getCapexExport,
+	test,
+} = require('../controllers/excel_report');
+const { getConsumptionReport } = require('../controllers/report');
+
+const { protect, authorize } = require('../middleware/auth');
+
+const router = express.Router();
+
+router.post(
+	'/getChallanSummaryExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getChallanSummaryExport
+);
+router.post(
+	'/getStockSummaryExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getStockSummaryExport
+);
+router.post(
+	'/getMaterialReceiptExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getMaterialReceiptExport
+);
+router.post(
+	'/getConsumptionExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getConsumptionExport
+);
+router.post(
+	'/getIssueTrackerExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getIssueTrackerExport
+);
+router.post(
+	'/getConsumptionExportYTDAndMTD',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getConsumptionExportYTDAndMTD
+);
+router.post(
+	'/getItemWiseStockExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getItemWiseStockExport
+);
+router.post(
+	'/getProductStockLedgerExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getProductStockLedgerExport
+);
+router.post(
+	'/getCapexExport',
+	protect,
+	authorize(
+		process.env.IT,
+		process.env.ADMIN,
+		process.env.IT_SYSTEM_ADMIN,
+		process.env.ADMIN_SYSTEM_ADMIN,
+		process.env.SYSTEM_ADMIN
+	),
+	getCapexExport
+);
+module.exports = router;
